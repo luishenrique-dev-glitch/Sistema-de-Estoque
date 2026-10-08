@@ -4,7 +4,7 @@ conexao = psycopg.connect(
     host="localhost",
     dbname="Estoque",
     user="postgres",
-    password="luis9841"
+    password="Minha_senha"
 )
 
 cursor = conexao.cursor()
