@@ -309,6 +309,14 @@ def relatorio_estoque():
     """)
     produto_menor_estoque = cursor.fetchone()
 
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM produtos
+        WHERE quantidade = 0
+         """)
+
+    produtos_zerados = cursor.fetchone()[0]
+
     # Relatório
     print("\n=============== RELATÓRIO DE ESTOQUE ===============\n")
 
@@ -334,6 +342,10 @@ def relatorio_estoque():
         f"{produto_menor_estoque[3]} unidades"
     )
 
+    print(
+        f"Produtos com estoque zerado: "
+        f"{produtos_zerados}"
+    )
     print("\n====================================================\n")
     
 def menu():
